@@ -1,0 +1,36 @@
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+#   name: app-2
+#   namespace: app
+# spec:
+#   rules:
+#   - host: app-2.mauriciogomes.com.br
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           serviceName: app-2
+#           servicePort: 80
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-2
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: app-2.mauriciogomes.com.br
+    http:
+      paths:
+      - backend:
+          serviceName: app-2
+          servicePort: 80
+  tls:
+  - hosts:
+    - app-2.mauriciogomes.com.br
+    secretName: app-2
