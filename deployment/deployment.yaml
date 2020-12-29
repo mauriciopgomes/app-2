@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: app-2
-        image: mauriciopgomes/app-1
+        image: mauriciopgomes/app-2
         imagePullPolicy: Always
         ports:
         - containerPort: 80

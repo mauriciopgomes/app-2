@@ -8,6 +8,6 @@ resources:
 - ingress.yaml
 namespace: app
 images:
-- name: mauriciopgomes/app-1
-  newName: mauriciopgomes/app-1
+- name: mauriciopgomes/app-2
+  newName: mauriciopgomes/app-2
   newTag: ef2cac562e356bb4da597b2223f9f6bddb4c095f
